@@ -27,3 +27,15 @@
 *.exe
 *.out
 *.app
+
+# Build folders
+bin/
+obj/
+Debug/
+
+# VC++ files
+*.opensdf
+*.sdf
+
+# VS files
+*.suo
