@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreesCS", "TreesCS\TreesCS.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lists", "Lists\Lists.vcxproj", "{50AC34DE-8705-467E-A995-48F60AD26B78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphCS", "GraphCS\GraphCS.csproj", "{D8751D9D-F000-47E9-A05E-EE8911E20663}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,16 @@ Global
 		{50AC34DE-8705-467E-A995-48F60AD26B78}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{50AC34DE-8705-467E-A995-48F60AD26B78}.Release|Win32.ActiveCfg = Release|Win32
 		{50AC34DE-8705-467E-A995-48F60AD26B78}.Release|Win32.Build.0 = Release|Win32
+		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

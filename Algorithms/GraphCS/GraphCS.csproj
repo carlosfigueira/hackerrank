@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FAE963A7-B4DF-46FA-BFD7-CB3274026FB4}</ProjectGuid>
+    <ProjectGuid>{D8751D9D-F000-47E9-A05E-EE8911E20663}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TreesCS</RootNamespace>
-    <AssemblyName>TreesCS</AssemblyName>
+    <RootNamespace>GraphCS</RootNamespace>
+    <AssemblyName>GraphCS</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,10 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BFS-ShortestReach.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SquareTenTree.cs" />
-    <Compile Include="SwapNodes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -17,7 +17,6 @@ void release(Node *root);
 
 Node * create(int count, ...) {
 	va_list ap;
-	int i;
 	Node *root = NULL;
 	va_start(ap, count);
 	for (int i = 0; i < count; i++) {
