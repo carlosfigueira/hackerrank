@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Trees", "Trees\Trees.vcxpro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreesCS", "TreesCS\TreesCS.csproj", "{FAE963A7-B4DF-46FA-BFD7-CB3274026FB4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lists", "Lists\Lists.vcxproj", "{50AC34DE-8705-467E-A995-48F60AD26B78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,16 @@ Global
 		{FAE963A7-B4DF-46FA-BFD7-CB3274026FB4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{FAE963A7-B4DF-46FA-BFD7-CB3274026FB4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{FAE963A7-B4DF-46FA-BFD7-CB3274026FB4}.Release|Win32.ActiveCfg = Release|Any CPU
+		{50AC34DE-8705-467E-A995-48F60AD26B78}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{50AC34DE-8705-467E-A995-48F60AD26B78}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{50AC34DE-8705-467E-A995-48F60AD26B78}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{50AC34DE-8705-467E-A995-48F60AD26B78}.Debug|Win32.ActiveCfg = Debug|Win32
+		{50AC34DE-8705-467E-A995-48F60AD26B78}.Debug|Win32.Build.0 = Debug|Win32
+		{50AC34DE-8705-467E-A995-48F60AD26B78}.Release|Any CPU.ActiveCfg = Release|Win32
+		{50AC34DE-8705-467E-A995-48F60AD26B78}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{50AC34DE-8705-467E-A995-48F60AD26B78}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{50AC34DE-8705-467E-A995-48F60AD26B78}.Release|Win32.ActiveCfg = Release|Win32
+		{50AC34DE-8705-467E-A995-48F60AD26B78}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
