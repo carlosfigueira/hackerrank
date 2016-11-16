@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lists", "Lists\Lists.vcxpro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphCS", "GraphCS\GraphCS.csproj", "{D8751D9D-F000-47E9-A05E-EE8911E20663}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsCS", "StringsCS\StringsCS.csproj", "{83BABB81-B89E-4555-B942-664D82333774}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,16 @@ Global
 		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D8751D9D-F000-47E9-A05E-EE8911E20663}.Release|Win32.ActiveCfg = Release|Any CPU
+		{83BABB81-B89E-4555-B942-664D82333774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83BABB81-B89E-4555-B942-664D82333774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83BABB81-B89E-4555-B942-664D82333774}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{83BABB81-B89E-4555-B942-664D82333774}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{83BABB81-B89E-4555-B942-664D82333774}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{83BABB81-B89E-4555-B942-664D82333774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83BABB81-B89E-4555-B942-664D82333774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83BABB81-B89E-4555-B942-664D82333774}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{83BABB81-B89E-4555-B942-664D82333774}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{83BABB81-B89E-4555-B942-664D82333774}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
