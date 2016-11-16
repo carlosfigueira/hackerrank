@@ -16,14 +16,34 @@ namespace TreesCS
     //   (9 segments of L2 - [101,200],...,[901,1000])
     //   (2 segments of L1 - [1001,1010],[1011,1020])
     //   (4 segments of L0 - [1021,1021],...,[1024,1024])
+    // 45; 48 => 1: 0 4
+    // 45; 58 => 1: 0 14
+    // 45; 68 => 3: 0 6; 1 1; 0 8
     class SquareTenTree
     {
         public static void Run()
         {
             int L = int.Parse(Console.ReadLine());
             int R = int.Parse(Console.ReadLine());
-
+            int mod;
             List<KeyValuePair<int, int>> result = new List<KeyValuePair<int, int>>();
+            while (R > L)
+            {
+                mod = R % 10;
+                if (mod != 0)
+                {
+                    if (R - mod < L)
+                    {
+                        // no need to go to 0
+                        result.Add(new KeyValuePair<int, int>(0, R - L + 1));
+                        R = L;
+                    }
+                    else if (R - mod - L < 10)
+                    {
+
+                    }
+                }
+            }
             int l = L - 1;
             int r = R - 1;
             int levelL = (int)Math.Log10(l == 0 ? 1 : l); //1
@@ -33,7 +53,7 @@ namespace TreesCS
 
             // Get L to xxx1
             int d = L;
-            int mod = d % 10;
+            mod = d % 10;
             if (mod != 1)
             {
                 segments = (11 - mod) % 10;
