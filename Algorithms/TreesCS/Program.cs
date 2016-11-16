@@ -11,8 +11,10 @@ namespace TreesCS
         static void Main(string[] args)
         {
             // https://www.hackerrank.com/challenges/swap-nodes-algo
-            SwapNodes.Run();
+            // SwapNodes.Run();
 
+            // https://www.hackerrank.com/challenges/square-ten-tree
+            SquareTenTree.Run();
         }
     }
 }
