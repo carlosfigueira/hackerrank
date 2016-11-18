@@ -10,7 +10,89 @@ namespace Fundamentals
     {
         static void Main(string[] args)
         {
-            LeonardosPrimes.Run();
+            ReversingGame.Run();
+            //ConnectingTowns.Run();
+            //SherlockAndMovingTiles.Run();
+            //LeonardosPrimes.Run();
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/reverse-game
+    class ReversingGame
+    {
+        public static void Run()
+        {
+            int T = int.Parse(Console.ReadLine());
+            for (int t = 0; t < T; t++)
+            {
+                int[] NK = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+                int N = NK[0];
+                int K = NK[1];
+                for (var i = 0; i < N; i++)
+                {
+                    if (K >= i)
+                    {
+                        int windowSize = N - i;
+                        int windowIndex = K - i;
+                        int windowNewPosition = windowSize - windowIndex - 1;
+                        K = windowNewPosition + i;
+                    }
+                    else
+                    {
+                        // Won't be reversed anymore
+                        break;
+                    }
+                }
+
+                Console.WriteLine(K);
+            }
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/connecting-towns
+    class ConnectingTowns
+    {
+        public static void Run()
+        {
+            int T = int.Parse(Console.ReadLine());
+            for (int i = 0; i < T; i++)
+            {
+                int N = int.Parse(Console.ReadLine());
+                int[] Routes = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+                long TotalRoutes = 1;
+                for (int j = 0; j < (N - 1); j++)
+                {
+                    TotalRoutes *= Routes[j];
+                    TotalRoutes = TotalRoutes % 1234567;
+                }
+
+                Console.WriteLine(TotalRoutes);
+            }
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/sherlock-and-moving-tiles
+    class SherlockAndMovingTiles
+    {
+        public static void Run()
+        {
+            double[] ls1s2 = Array.ConvertAll(Console.ReadLine().Split(' '), double.Parse);
+            double L = ls1s2[0];
+            double S1 = ls1s2[1];
+            double S2 = ls1s2[2];
+            double relSpeed = Math.Abs(S1 - S2); // difference of speeds
+            double relSpeedX = relSpeed / Math.Sqrt(2); // difference of speeds, X axis
+            int Q = int.Parse(Console.ReadLine());
+            for (var i = 0; i < Q; i++)
+            {
+                var qi = double.Parse(Console.ReadLine());
+
+                // Area = (L - t * relSpeedX) ^ 2
+                // sqrt(Area) = L - t * relSpeedX
+                // t = (L - sqrt(Area)) / relSpeedX
+                double t = (L - Math.Sqrt(qi)) / relSpeedX;
+                Console.WriteLine(t);
+            }
         }
     }
 
