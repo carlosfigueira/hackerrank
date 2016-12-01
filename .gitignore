@@ -36,6 +36,7 @@ Debug/
 # VC++ files
 *.opensdf
 *.sdf
+*.VC.db
 
 # VS files
 *.suo

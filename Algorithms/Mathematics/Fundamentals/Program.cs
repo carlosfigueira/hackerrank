@@ -10,10 +10,21 @@ namespace Fundamentals
     {
         static void Main(string[] args)
         {
-            ReversingGame.Run();
-            //ConnectingTowns.Run();
-            //SherlockAndMovingTiles.Run();
-            //LeonardosPrimes.Run();
+            StrangeGrid.Run();
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/strange-grid
+    class StrangeGrid
+    {
+        public static void Run()
+        {
+            long[] rc = Array.ConvertAll(Console.ReadLine().Split(' '), long.Parse);
+            long r = rc[0];
+            long c = rc[1];
+            long nonStrangeRow = (r - 1) / 2;
+            long n = nonStrangeRow * (c * 2) + (c - 1);
+            Console.WriteLine(n);
         }
     }
 
