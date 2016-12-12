@@ -37,6 +37,8 @@ Debug/
 *.opensdf
 *.sdf
 *.VC.db
+*.VC.opendb
 
 # VS files
 *.suo
+*.csproj.user

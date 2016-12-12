@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,8 @@ namespace MachineLearning
     {
         static void Main(string[] args)
         {
-            MarkovsSnakesAndLadders.Run();
+            File.Copy("LaptopBatteryLife_trainingdata.txt", "trainingdata.txt");
+            LaptopBatteryLife.Run();
         }
     }
 }
