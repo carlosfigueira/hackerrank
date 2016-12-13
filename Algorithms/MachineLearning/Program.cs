@@ -11,8 +11,10 @@ namespace MachineLearning
     {
         static void Main(string[] args)
         {
-            File.Copy("LaptopBatteryLife_trainingdata.txt", "trainingdata.txt");
-            LaptopBatteryLife.Run();
+            //File.Copy("LaptopBatteryLife_trainingdata.txt", "trainingdata.txt");
+            //LaptopBatteryLife.Run();
+
+            BestAptitudeTest.Run();
         }
     }
 }
