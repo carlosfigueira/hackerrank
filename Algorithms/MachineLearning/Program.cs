@@ -14,6 +14,7 @@ namespace MachineLearning
             //File.Copy("LaptopBatteryLife_trainingdata.txt", "trainingdata.txt");
             //LaptopBatteryLife.Run();
 
+            //BestAptitudeTest.TestRanks();
             BestAptitudeTest.Run();
         }
     }
