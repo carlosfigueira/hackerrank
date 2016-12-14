@@ -12,16 +12,17 @@ namespace WeekOfCode26
         static List<int> primes;
         public static void Run()
         {
+            int[] nm = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), int.Parse);
+            int n = nm[0];
+            int m = nm[1];
+
             primes = new List<int>(firstPrimes);
-            int maxValue = (int)Math.Sqrt(1000000000) + 1;
+            int maxValue = (int)Math.Ceiling(Math.Sqrt(Math.Max(1000000000, m)));
             for (int i = firstPrimes[firstPrimes.Length - 1]; i <= maxValue; i += 2)
             {
                 IsPrime(i, true);
             }
 
-            int[] nm = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), int.Parse);
-            int n = nm[0];
-            int m = nm[1];
             int count = 0;
             if (n <= 3 && m >= 5) count++; // handle case of (3, 5) first
             if ((n % 6) != 5) n = n + 5 - (n % 6); // all prime twins (other than 3,5 are of the form 6n-1,6n+1)
@@ -33,6 +34,7 @@ namespace WeekOfCode26
                     count++;
                 }
             }
+
             Console.WriteLine(count);
         }
         static bool IsPrime(int n, bool addToList = false)
