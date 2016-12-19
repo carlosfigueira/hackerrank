@@ -27,26 +27,11 @@ namespace Implementation
                 int a = ab[0];
                 int b = ab[1];
                 int sra = (int)Math.Sqrt(a);
-                int count = 0;
-                if (sra * sra == a)
-                {
-                    count++;
-                    sra++;
-                }
+                int first = (sra * sra == a) ? sra : sra + 1;
 
-                if (a != b)
-                {
-                    int srb = (int)Math.Sqrt(b);
-                    if (srb * srb == b)
-                    {
-                        count++;
-                        srb--;
-                    }
-
-                    count += (srb - sra);
-                }
-
-                Console.WriteLine(count);
+                int srb = (int)Math.Ceiling(Math.Sqrt(b));
+                int last = (srb * srb == b) ? srb : srb - 1;
+                Console.WriteLine(last - first + 1);
             }
         }
     }
