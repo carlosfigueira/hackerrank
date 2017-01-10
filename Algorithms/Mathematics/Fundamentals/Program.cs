@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,45 @@ namespace Fundamentals
     {
         static void Main(string[] args)
         {
-            StrangeGrid.Run();
+            IsFibo.Run();
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/is-fibo
+    class IsFibo
+    {
+        static HashSet<long> fibos = new HashSet<long>();
+        public static void Run()
+        {
+            FillFiboNumbers();
+            int T = int.Parse(Console.ReadLine());
+            for (int t = 0; t < T; t++)
+            {
+                long N = long.Parse(Console.ReadLine());
+                if (IsFibonacci(N))
+                {
+                    Console.WriteLine("IsFibo");
+                }
+                else
+                {
+                    Console.WriteLine("IsNotFibo");
+                }
+            }
+        }
+        static void FillFiboNumbers()
+        {
+            long a = 0;
+            long b = 1;
+            while (a < 10000000000L)
+            {
+                fibos.Add(a);
+                b = a + b;
+                a = b - a;
+            }
+        }
+        static bool IsFibonacci(long l)
+        {
+            return fibos.Contains(l);
         }
     }
 

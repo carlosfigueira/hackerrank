@@ -15,6 +15,30 @@ namespace Implementation
         }
     }
 
+    class MinMax
+    {
+        public static void Run()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int k = int.Parse(Console.ReadLine());
+            List<int> numbers = new List<int>();
+            for (int i =0; i < n; i++)
+            {
+                numbers.Add(int.Parse(Console.ReadLine()));
+            }
+
+            numbers.Sort();
+            int best = int.MaxValue;
+            for (int i = 0; i < n - k + 1; i++)
+            {
+                int current = numbers[i + k - 1] - numbers[i];
+                if (best > current) best = current;
+            }
+
+            Console.WriteLine(best);
+        }
+    }
+
     // https://www.hackerrank.com/challenges/sherlock-and-squares
     class SherlockAndSquares
     {
