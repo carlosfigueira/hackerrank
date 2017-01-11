@@ -15,6 +15,100 @@ namespace Implementation
         }
     }
 
+    // https://www.hackerrank.com/challenges/bon-appetit
+    class BonAppetit
+    {
+        public static void Run()
+        {
+            int[] nk = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            int n = nk[0];
+            int k = nk[1];
+            int[] c = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            int b = int.Parse(Console.ReadLine());
+            int total = 0;
+            for (int i = 0; i < n; i++) total += c[i];
+            int overcharge = b - (total - c[k]) / 2;
+            if (overcharge == 0)
+            {
+                Console.WriteLine("Bon Appetit");
+            }
+            else
+            {
+                Console.WriteLine(overcharge);
+            }
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/divisible-sum-pairs
+    class DivisibleSumPairs
+    {
+        public static void Run()
+        {
+            string[] tokens_n = Console.ReadLine().Split(' ');
+            int n = Convert.ToInt32(tokens_n[0]);
+            int k = Convert.ToInt32(tokens_n[1]);
+            string[] a_temp = Console.ReadLine().Split(' ');
+            int[] a = Array.ConvertAll(a_temp, Int32.Parse);
+            int count = 0;
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (((a[i] + a[j]) % k) == 0) count++;
+                }
+            }
+
+            Console.WriteLine(count);
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/between-two-sets
+    class BetweenTwoSets
+    {
+        public static void Run()
+        {
+            string[] tokens_n = Console.ReadLine().Split(' ');
+            //int n = Convert.ToInt32(tokens_n[0]);
+            //int m = Convert.ToInt32(tokens_n[1]);
+            string[] a_temp = Console.ReadLine().Split(' ');
+            int[] a = Array.ConvertAll(a_temp, Int32.Parse);
+            string[] b_temp = Console.ReadLine().Split(' ');
+            int[] b = Array.ConvertAll(b_temp, Int32.Parse);
+            int maxA = a.Max();
+            int minB = b.Min();
+            int count = 0;
+            for (int i = maxA; i <= minB; i++)
+            {
+                if (a.All(ai => (i % ai) == 0) && b.All(bi => (bi % i) == 0)) count++;
+            }
+
+            Console.WriteLine(count);
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/kangaroo
+    class Kangaroo
+    {
+        public static void Run()
+        {
+            string[] tokens_x1 = Console.ReadLine().Split(' ');
+            int x1 = Convert.ToInt32(tokens_x1[0]);
+            int v1 = Convert.ToInt32(tokens_x1[1]);
+            int x2 = Convert.ToInt32(tokens_x1[2]);
+            int v2 = Convert.ToInt32(tokens_x1[3]);
+            if (v1 <= v2)
+            {
+                Console.WriteLine("NO");
+            }
+            else
+            {
+                int dv = v1 - v2;
+                int dx = x2 - x1;
+                Console.WriteLine((dx % dv) == 0 ? "YES" : "NO");
+            }
+        }
+    }
+
     class MinMax
     {
         public static void Run()
