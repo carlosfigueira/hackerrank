@@ -15,6 +15,59 @@ namespace Implementation
         }
     }
 
+    // https://www.hackerrank.com/challenges/strange-advertising
+    class StrangeAdvertising {
+        public static void Run() {
+            int d = 5;
+            int n = int.Parse(Console.ReadLine());
+            int sum = 0;
+            for (int i = 0; i < n; i++) {
+                int liked = d / 2;
+                sum += liked;
+                d = liked * 3;
+                // Console.WriteLine("day {0}: sum = {1}, d = {2}", i + 1, sum, d);
+            }
+            Console.WriteLine(sum);
+        }
+    }
+    
+    // https://www.hackerrank.com/challenges/angry-professor
+    class AngryProfessor {
+        public static void Run() {
+            int t = Convert.ToInt32(Console.ReadLine());
+            for(int a0 = 0; a0 < t; a0++){
+                string[] tokens_n = Console.ReadLine().Split(' ');
+                int n = Convert.ToInt32(tokens_n[0]);
+                int k = Convert.ToInt32(tokens_n[1]);
+                string[] a_temp = Console.ReadLine().Split(' ');
+                int[] a = Array.ConvertAll(a_temp,Int32.Parse);
+                int onTime = 0;
+                for (int i = 0; i < n; i++) {
+                    if (a[i] <= 0) onTime++;
+                }
+                Console.WriteLine(onTime < k ? "YES" : "NO");
+            }
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/sock-merchant
+    class SockMerchant {
+        public static void Run() {
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] c_temp = Console.ReadLine().Split(' ');
+            int[] c = Array.ConvertAll(c_temp,Int32.Parse);
+            int[] counts = new int[100];
+            for (int i = 0; i < n; i++) {
+                counts[c[i] - 1]++;
+            }
+            int result = 0;
+            for (int i = 0; i < counts.Length; i++) {
+                result += counts[i] / 2;
+            }
+            Console.WriteLine(result);
+        }
+    }
+
     // https://www.hackerrank.com/challenges/bon-appetit
     class BonAppetit
     {
