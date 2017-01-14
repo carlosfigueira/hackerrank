@@ -11,7 +11,160 @@ namespace Implementation
         static void Main(string[] args)
         {
             //UtopianTree.Run();
-            SherlockAndSquares.Run();
+            MarkAndToys.Run();
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/mark-and-toys
+    class MarkAndToys
+    {
+        public static void Run()
+        {
+            int[] nk = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            int[] P = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            int n = nk[0];
+            int k = nk[1];
+            Array.Sort(P);
+            int count = 0;
+            while (count < n && k > 0)
+            {
+                k -= P[count];
+                count++;
+            }
+
+            if (k < 0) count--;
+            Console.WriteLine(count);
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/largest-permutation
+    class LargestPermutation
+    {
+        public static void Run()
+        {
+            int[] nk = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            int[] N = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            int n = nk[0];
+            int k = nk[1];
+
+            int[] indices = new int[n + 1];
+            for (int i = 0; i < n; i++)
+            {
+                indices[N[i]] = i;
+            }
+
+            for (int i = 0; i < n && k > 0; i++)
+            {
+                int nextHighest = n - i;
+                if (N[i] == nextHighest)
+                {
+                    // Already maximum
+                    continue;
+                }
+
+                int nextHighestIndex = indices[nextHighest];
+                int temp = N[i];
+                N[i] = nextHighest;
+                N[nextHighestIndex] = temp;
+                indices[temp] = nextHighestIndex;
+                indices[nextHighest] = i;
+                k--;
+            }
+
+            Console.WriteLine(string.Join(" ", N));
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/priyanka-and-toys
+    class PriyankaAndToys
+    {
+        public static void Run()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] w = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            Array.Sort(w);
+            int current = -1000;
+            int result = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (w[i] - current > 4)
+                {
+                    result++;
+                    current = w[i];
+                }
+            }
+
+            Console.WriteLine(result);
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/sherlock-and-the-beast
+    class SherlockAndTheBeast
+    {
+        public static void Run()
+        {
+            int t = Convert.ToInt32(Console.ReadLine());
+            for (int a0 = 0; a0 < t; a0++)
+            {
+                int n = Convert.ToInt32(Console.ReadLine());
+                if (n == 1 || n == 2 || n == 4 || n == 7)
+                {
+                    Console.WriteLine(-1);
+                }
+                else if ((n % 3) == 0)
+                {
+                    Console.WriteLine(new string('5', n));
+                    //Console.WriteLine("5*{0}", n);
+                }
+                else
+                {
+                    int fives = n - n % 15;
+                    int threes = 0;
+                    switch (n % 15)
+                    {
+                        case 5:
+                        case 10:
+                            threes = n - fives;
+                            break;
+                        case 1:
+                            fives -= 9;
+                            threes += 10;
+                            break;
+                        case 2:
+                            fives -= 3;
+                            threes += 5;
+                            break;
+                        case 4:
+                            fives -= 6;
+                            threes += 10;
+                            break;
+                        case 7:
+                            fives -= 3;
+                            threes += 10;
+                            break;
+                        case 8:
+                            fives += 3;
+                            threes += 5;
+                            break;
+                        case 11:
+                            fives += 6;
+                            threes += 5;
+                            break;
+                        case 13:
+                            fives += 3;
+                            threes += 10;
+                            break;
+                        case 14:
+                            fives += 9;
+                            threes += 5;
+                            break;
+                    }
+
+                    //Console.WriteLine("5*{0}, 3*{1}", fives, threes);
+                    Console.Write(new string('5', fives));
+                    Console.WriteLine(new string('3', threes));
+                }
+            }
         }
     }
 
