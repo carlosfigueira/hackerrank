@@ -10,8 +10,110 @@ namespace Implementation
     {
         static void Main(string[] args)
         {
-            //UtopianTree.Run();
-            MarkAndToys.Run();
+            SherlockAndMinMax.Run();
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/sherlock-and-minimax
+    // Hard, 70
+    class SherlockAndMinMax
+    {
+        public static void Run()
+        {
+            int N = int.Parse(Console.ReadLine());
+            int[] A = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), int.Parse);
+            int[] PQ = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), int.Parse);
+            int P = PQ[0];
+            int Q = PQ[1];
+
+            Array.Sort(A);
+            int max = 0;
+            int number = P;
+
+            if (P <= A[0])
+            {
+                max = A[0] - P;
+                number = P;
+            }
+
+            int i = 0;
+            while (i < N - 1 && P > A[i + 1]) i++;
+
+            while (i < N - 1 && Q >= A[i])
+            {
+                int mid = (A[i] + A[i + 1]) / 2;
+                int maxForSection = (A[i + 1] - A[i]) / 2;
+
+                if (P <= mid && mid <= Q)
+                {
+                    if (maxForSection > max)
+                    {
+                        max = maxForSection;
+                        number = mid;
+                    }
+                }
+                else if (P > mid)
+                {
+                    int maxForP = A[i + 1] - P;
+                    if (maxForP > max)
+                    {
+                        max = maxForP;
+                        number = P;
+                    }
+                }
+                else if (Q < mid)
+                {
+                    int maxForQ = Q - A[i];
+                    if (maxForQ > max)
+                    {
+                        max = maxForQ;
+                        number = Q;
+                    }
+                }
+
+                i++;
+            }
+
+            if (Q >= A[N - 1])
+            {
+                if (Q - A[N - 1] > max)
+                {
+                    max = Q - A[N - 1];
+                    number = Q;
+                }
+            }
+
+            Console.WriteLine(number);
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/greedy-florist
+    class GreedyFlorist
+    {
+        public static void Run()
+        {
+            int[] nk = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            int[] C = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            int N = nk[0];
+            int K = nk[1];
+
+            Array.Sort(C);
+
+            int totalCost = 0;
+            int multiplier = 1;
+            while (N > 0)
+            {
+                int flowersThisRound = Math.Min(K, N);
+                for (int i = 0; i < flowersThisRound; i++)
+                {
+                    totalCost += C[N - i - 1] * multiplier;
+                }
+
+                N -= flowersThisRound;
+                multiplier++;
+            }
+
+            Console.WriteLine(totalCost);
         }
     }
 
