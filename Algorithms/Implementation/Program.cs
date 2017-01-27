@@ -10,7 +10,54 @@ namespace Implementation
     {
         static void Main(string[] args)
         {
-            SherlockAndMinMax.Run();
+            SherlockAndArray.Run();
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/sherlock-and-array
+    // Easy, 40
+    class SherlockAndArray
+    {
+        public static void Run()
+        {
+            int T = int.Parse(Console.ReadLine());
+            for (int t = 0; t < T; t++)
+            {
+                int N = int.Parse(Console.ReadLine());
+                int[] A = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+                if (N == 1)
+                {
+                    Console.WriteLine("YES");
+                }
+                else if (N == 2)
+                {
+                    Console.WriteLine("NO");
+                }
+                else
+                {
+                    int totalLeft = 0, totalRight = 0, iLeft = 0, iRight = N - 1;
+                    while (iRight - iLeft >= 1)
+                    {
+                        if (totalLeft < totalRight)
+                        {
+                            totalLeft += A[iLeft++];
+                        }
+                        else
+                        {
+                            totalRight += A[iRight--];
+                        }
+                    }
+
+                    if (totalLeft == totalRight)
+                    {
+                        Console.WriteLine("YES");
+                    }
+                    else
+                    {
+                        Console.WriteLine("NO");
+                    }
+                }
+            }
         }
     }
 
