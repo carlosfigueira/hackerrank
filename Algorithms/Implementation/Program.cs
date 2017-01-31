@@ -14,6 +14,49 @@ namespace Implementation
         }
     }
 
+    // https://www.hackerrank.com/challenges/missing-numbers
+    // Easy, 45
+    class MissingNumbers
+    {
+        public static void Run()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] A = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            int m = int.Parse(Console.ReadLine());
+            int[] B = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            int[] freq = new int[10001];
+            for (int i = 0; i < n; i++)
+            {
+                freq[A[i]]--;
+            }
+
+            for (int i = 0; i < m; i++)
+            {
+                freq[B[i]]++;
+            }
+
+            bool first = true;
+            for (int i = 1; i < freq.Length; i++)
+            {
+                if (freq[i] > 0)
+                {
+                    if (first)
+                    {
+                        first = false;
+                    }
+                    else
+                    {
+                        Console.Write(' ');
+                    }
+
+                    Console.Write(i);
+                }
+            }
+
+            Console.WriteLine();
+        }
+    }
+
     // https://www.hackerrank.com/challenges/sherlock-and-array
     // Easy, 40
     class SherlockAndArray
