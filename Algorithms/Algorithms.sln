@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Trees", "Trees\Trees.vcxproj", "{51699C72-A76D-4158-A28A-02608AF2F651}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineLearning", "MachineLearning\MachineLearning.csproj", "{09045254-4706-424B-B8CA-B8AF78518D35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Implementation", "Implementation\Implementation.csproj", "{57A99F35-FAA5-4648-975D-97BE36560A89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geometry", "Geometry\Geometry.csproj", "{5CCC7DCC-C315-454E-8C8A-234CA38323FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,11 +127,24 @@ Global
 		{57A99F35-FAA5-4648-975D-97BE36560A89}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{57A99F35-FAA5-4648-975D-97BE36560A89}.Release|Win32.ActiveCfg = Release|Any CPU
 		{57A99F35-FAA5-4648-975D-97BE36560A89}.Release|Win32.Build.0 = Release|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Debug|Win32.Build.0 = Debug|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Release|Win32.ActiveCfg = Release|Any CPU
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{60BE8D2F-D478-4580-9D09-AF391AF76CE6} = {05189674-CC7E-4A90-9342-EA7D10C28F41}
+		{5CCC7DCC-C315-454E-8C8A-234CA38323FD} = {05189674-CC7E-4A90-9342-EA7D10C28F41}
 	EndGlobalSection
 EndGlobal
