@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,231 @@ namespace Implementation
     {
         static void Main(string[] args)
         {
-            SherlockAndArray.Run();
+            MaximumSubarraySum.Run();
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/connected-cell-in-a-grid
+    // Medium, 50
+    class ConnectedCellsInAGrid
+    {
+        public static void Run()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int m = int.Parse(Console.ReadLine());
+            int[][] grid = new int[n][];
+            for (int i = 0; i < n; i++)
+            {
+                grid[i] = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            }
+
+            int maxRegion = 0;
+            //PrintGrid(grid);
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    if (grid[i][j] == 1)
+                    {
+                        int regionSize = CalculateRegion(grid, i, j, n, m);
+                        //PrintGrid(grid);
+                        if (regionSize > maxRegion)
+                        {
+                            maxRegion = regionSize;
+                        }
+                    }
+                }
+            }
+
+            Console.WriteLine(maxRegion);
+        }
+
+        static void PrintGrid(int[][] grid)
+        {
+            for (int i = 0; i < grid.Length; i++)
+            {
+                Console.WriteLine(string.Join(" ", grid[i]));
+            }
+            Console.WriteLine();
+        }
+
+        static int CalculateRegion(int[][] grid, int i, int j, int n, int m)
+        {
+            Queue<Tuple<int, int>> toExplore = new Queue<Tuple<int, int>>();
+            toExplore.Enqueue(Tuple.Create(i, j));
+            int size = 0;
+            while (toExplore.Count > 0)
+            {
+                Tuple<int, int> next = toExplore.Dequeue();
+                i = next.Item1;
+                j = next.Item2;
+                if (grid[i][j] == 1)
+                {
+                    size++;
+                    grid[i][j] = 8;
+                    if (i > 0 && grid[i - 1][j] == 1) toExplore.Enqueue(Tuple.Create(i - 1, j)); // S
+                    if (i < n - 1 && grid[i + 1][j] == 1) toExplore.Enqueue(Tuple.Create(i + 1, j)); // N
+                    if (j > 0 && grid[i][j - 1] == 1) toExplore.Enqueue(Tuple.Create(i, j - 1)); // W
+                    if (j < m - 1 && grid[i][j + 1] == 1) toExplore.Enqueue(Tuple.Create(i, j + 1)); // E
+                    if (i > 0 && j > 0 && grid[i - 1][j - 1] == 1) toExplore.Enqueue(Tuple.Create(i - 1, j - 1)); // SE
+                    if (i < n - 1 && j < m - 1 && grid[i + 1][j + 1] == 1) toExplore.Enqueue(Tuple.Create(i + 1, j + 1)); // NW
+                    if (i < n - 1 && j > 0 && grid[i + 1][j - 1] == 1) toExplore.Enqueue(Tuple.Create(i + 1, j - 1)); // SW
+                    if (i > 0 && j < m - 1 && grid[i - 1][j + 1] == 1) toExplore.Enqueue(Tuple.Create(i - 1, j + 1)); // NE
+                }
+            }
+
+            return size;
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/maximum-subarray-sum
+    // Hard, 65
+    // INCORRECT
+    class MaximumSubarraySum
+    {
+        static class Console
+        {
+            static bool useConsole = false;
+            static bool initialized = false;
+            static string fileName = @"D:\temp\deleteme\input.txt";
+            static int lineIndex;
+            static string[] lines;
+            public static string ReadLine()
+            {
+                if (useConsole)
+                {
+                    return System.Console.ReadLine();
+                }
+                else
+                {
+                    if (!initialized)
+                    {
+                        initialized = true;
+                        lineIndex = 0;
+                        lines = File.ReadAllLines(fileName);
+                    }
+
+                    return lines[lineIndex++];
+                }
+            }
+        }
+
+        public static void Run()
+        {
+            int q = int.Parse(Console.ReadLine());
+            for (int iq = 0; iq < q; iq++)
+            {
+                long[] nm = Array.ConvertAll(Console.ReadLine().Split(' '), long.Parse);
+                int n = (int)nm[0];
+                long m = nm[1];
+                long[] A = Array.ConvertAll(Console.ReadLine().Split(' '), long.Parse);
+                for (int i = 0; i < n; i++)
+                {
+                    A[i] = A[i] % m;
+                }
+
+                long max = -1;
+                long[] upToNPrev = new long[n];
+                max = upToNPrev[0] = A[0];
+                for (int i = 1; i < n; i++)
+                {
+                    for (int j = i; j >= 1; j--)
+                    {
+                        long cell = (upToNPrev[j - 1] + A[j]) % m;
+                        upToNPrev[j] = cell;
+                        if (cell > max) max = cell;
+                    }
+
+                    upToNPrev[0] = A[i];
+                    if (A[i] > max) max = A[i];
+                }
+
+                //long[] partialSums = new long[n];
+                //partialSums[0] = A[0];
+                //for (int i = 1; i < n; i++)
+                //{
+                //    partialSums[i] = (partialSums[i - 1] + A[i]) % m;
+                //}
+
+                //List<long> found = new List<long>();
+                //long max = 0;
+
+                //for (int i = 0; i < n; i++)
+                //{
+                //    long x = partialSums[i];
+                //    int j = BisectRight(found, x);
+                //    max = Math.Max(max, x);
+                //    if (j < i)
+                //    {
+                //        // sub array from j+1, i may be a solution
+                //        max = Math.Max(max, (partialSums[i] - found[j]) % m);
+                //    }
+
+                //    found.Insert(j, x);
+                //}
+
+                System.Console.WriteLine(max);
+            }
+        }
+
+        static int BisectRight(List<long> arr, long x, int index = 0, int count = -1)
+        {
+            if (count == -1) count = arr.Count;
+
+            if (count == 0) return 0;
+            if (x < arr[index]) return 0;
+            if (x >= arr[index + count - 1]) return index + count;
+            int mid = index + count / 2;
+            if (x == arr[mid]) return mid + 1;
+            if (x < arr[mid]) return BisectRight(arr, x, index, count / 2);
+            return BisectRight(arr, x, mid, count - count / 2);
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/pairs
+    // Medium, 50
+    class Pairs
+    {
+        static int pairs(int[] a, int k)
+        {
+            Array.Sort(a);
+            int n = a.Length;
+            int p1 = 0, p2 = 1;
+            int count = 0;
+            while (p2 < n)
+            {
+                int diff = a[p2] - a[p1];
+                if (diff == k)
+                {
+                    count++;
+                    p1++;
+                    p2++;
+                }
+                else if (diff < k)
+                {
+                    // less than k, need to advance higher pointer
+                    p2++;
+                }
+                else
+                {
+                    // more than k, need to advance lower pointer
+                    p1++;
+                    if (p1 == p2)
+                    {
+                        p2++;
+                    }
+                }
+            }
+
+            return count;
+        }
+        public static void Run()
+        {
+            int[] nk = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            //int n = nk[0];
+            int k = nk[1];
+            int[] A = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            Console.WriteLine(pairs(A, k));
         }
     }
 
