@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,77 @@ namespace Geometry
     {
         static void Main(string[] args)
         {
+            SherlockAndCounting.Run();
+        }
+    }
+
+    // https://www.hackerrank.com/challenges/sherlock-and-counting
+    // Easy, 20
+    class SherlockAndCounting
+    {
+        static class Console
+        {
+            static bool useConsole = false;
+            static bool initialized = false;
+            static string fileName = @"C:\temp\deleteme\input00.txt";
+            static int lineIndex;
+            static string[] lines;
+            public static string ReadLine()
+            {
+                if (useConsole)
+                {
+                    return System.Console.ReadLine();
+                }
+                else
+                {
+                    if (!initialized)
+                    {
+                        initialized = true;
+                        lineIndex = 0;
+                        lines = File.ReadAllLines(fileName);
+                    }
+
+                    return lines[lineIndex++];
+                }
+            }
+        }
+
+        public static void Run()
+        {
+            int q = int.Parse(Console.ReadLine());
+            for (int iq = 0; iq < q; iq++)
+            {
+                int[] temp = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), int.Parse);
+                long n = temp[0];
+                long k = temp[1];
+                long nk = n * k;
+
+                // i * (n - i) - nk <= 0
+                // -i^2 + in - nk <= 0
+                // Roots: 
+                long delta = n * n - 4 * nk;
+                long result = n - 1;
+                if (delta > 0)
+                {
+                    long root1 = (long)Math.Ceiling((n - Math.Sqrt(delta)) / 2);
+                    while (root1 * (n - root1) > nk)
+                    {
+                        root1--;
+                    }
+
+                    result = root1;
+
+                    long root2 = (long)Math.Floor((n + Math.Sqrt(delta)) / 2);
+                    while (root2 * (n - root2) > nk)
+                    {
+                        root2++;
+                    }
+
+                    result += (n - root2);
+                }
+                //Console.WriteLine("{0} - {1} - {2}", delta, root1, root2);
+                System.Console.WriteLine(result);
+            }
         }
     }
 
