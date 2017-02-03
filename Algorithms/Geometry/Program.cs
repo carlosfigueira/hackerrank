@@ -13,6 +13,73 @@ namespace Geometry
         }
     }
 
+    // https://www.hackerrank.com/challenges/sherlock-and-planes
+    // Easy, 20
+    class SherlockAndPlanes
+    {
+        public static void Run()
+        {
+            int T = int.Parse(Console.ReadLine());
+            for (int i = 0; i < T; i++)
+            {
+                Point a = Point.ReadFromConsole();
+                Point b = Point.ReadFromConsole();
+                Point c = Point.ReadFromConsole();
+                Point d = Point.ReadFromConsole();
+
+                Point abVector = a.Subtract(b);
+                Point acVector = a.Subtract(c);
+                Point adVector = a.Subtract(d);
+                Point normalVector = abVector.CrossProduct(acVector);
+                int crossProduct = normalVector.DotProduct(adVector);
+                Console.WriteLine(crossProduct == 0 ? "YES" : "NO");
+            }
+        }
+
+        class Point
+        {
+            public int X { get; set; }
+            public int Y { get; set; }
+            public int Z { get; set; }
+
+            public static Point ReadFromConsole()
+            {
+                int[] coords = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+                return new Point
+                {
+                    X = coords[0],
+                    Y = coords[1],
+                    Z = coords[2]
+                };
+            }
+
+            public Point Subtract(Point other)
+            {
+                return new Point
+                {
+                    X = this.X - other.X,
+                    Y = this.Y - other.Y,
+                    Z = this.Z - other.Z
+                };
+            }
+
+            public Point CrossProduct(Point other)
+            {
+                return new Point
+                {
+                    X = this.Y * other.Z - this.Z * other.Y,
+                    Y = this.Z * other.X - this.X * other.Z,
+                    Z = this.X * other.Y - this.Y * other.X
+                };
+            }
+
+            public int DotProduct(Point other)
+            {
+                return this.X * other.X + this.Y * other.Y + this.Z * other.Z;
+            }
+        }
+    }
+
     // https://www.hackerrank.com/challenges/rectangular-game
     // Easy, 20
     class RectangularGame
