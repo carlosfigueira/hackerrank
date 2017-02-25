@@ -10,6 +10,7 @@ namespace WeekOfCode29
     {
         static void Main(string[] args)
         {
+            ACircleAndASquare.Run();
         }
     }
 }
