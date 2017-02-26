@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ACircleAndASquare.cs" />
+    <Compile Include="AlmostIntegerRockGarden.cs" />
     <Compile Include="BigSorting.cs" />
     <Compile Include="DayOfTheProgrammer.cs" />
     <Compile Include="Program.cs" />
