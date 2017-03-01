@@ -34,3 +34,12 @@ laf5 <- function() {
   print (b[3,2])
   print (b[3,3])
 }
+
+laf7 <- function() {
+  a <- matrix(c(-2, -9, 1, 4), nrow = 2, byrow = T)
+  b <- a
+  for (i in 2:1000) {
+    b <- b %*% a
+  }
+  print (b)
+}
