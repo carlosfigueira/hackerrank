@@ -10,12 +10,31 @@ namespace LinearAlgebra
     {
         static void Main(string[] args)
         {
-            DeterminantOfMatrix.Run();
+            DeterminantOfMatrix1.Run();
+        }
+    }
+
+    class DeterminantOfMatrix3
+    {
+        public static void Run()
+        {
+            // |a b c|
+            // |d e f| = -6
+            // |g h i|
+            //
+            // aei + bfg + cdh - ceg - bdi - afh = -6
+            //
+            // |d e f|
+            // |g h i| = ?
+            // |a b c|
+            //
+            // cdh + aei + bfg - bdi - ceg - afh = ? = -6
+            Console.WriteLine("Det = -6");
         }
     }
 
     // https://www.hackerrank.com/challenges/determinant-of-the-matrix-1
-    class DeterminantOfMatrix
+    class DeterminantOfMatrix1
     {
         public static void Run()
         {
